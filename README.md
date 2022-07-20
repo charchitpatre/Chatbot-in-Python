@@ -7,3 +7,9 @@ This Chatbot uses following functions:-
 2. For movie recommendations we are using BeautifulSoup (bs4) to scrap IMDB.
 3. For song recommendations we are using Last.fm API which uses tag.gettoptracks
 
+Requirements:-
+1. Text Blob
+2. BeautifulSoup (bs4)
+3. Last.fm API
+4. Requests
+5. Python
