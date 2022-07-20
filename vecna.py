@@ -1,8 +1,9 @@
 # Implementing Last.fm API
+# You will have to make an API Key in order to execute this program which you will enter below to go further
 
-API_KEY = # add your API key
-API_SECRET = # add you API key secret
-USER_AGENT = 'Dataquest'
+API_KEY = # Add your API key here
+API_SECRET = # Add you API key secret here
+USER_AGENT = 'Rude'
 import requests
 headers = {
     'user-agent': USER_AGENT
@@ -30,22 +31,22 @@ def lastfm_get(url,payload):
     response = requests.get(url,headers=headers,params=payload)
     return response
 
-# Using Text Blob
+# Using Text Blob here
 
 import random
 import json
 from textblob import TextBlob
 emo =[]
 
-sentence = random.sample(["Hey has your day been?","Hola! How's the day been so far","Ahh friend how has life been treating you this fine day",
-                       "Yo what's up"],1)
+sentence = random.sample(["Hey, How has your day been?","Hola! How's the day been so far","Ahh friend! How has life been treating you this fine day",
+                       "Yo What's up"],1)
 print(sentence)
 
 reply = input()
 blob = TextBlob(reply)
 
 if blob.polarity > 0:
-  sentence = random.sample(["That's good to hear","NICEE good for you","Look at you living the life"],1)
+  sentence = random.sample(["That's good to hear","NICEE good for you","Look at you, living the life"],1)
   print(sentence)
   emo.append("P")
 else:
@@ -53,7 +54,7 @@ else:
   print(sentence)
   emo.append("N")
 
-sentence = random.sample(["How are you feeling?", "What about you how are you?","You good my bro?"],1)
+sentence = random.sample(["How are you feeling?", "What about you, how are you?","You good my bro?"],1)
 print(sentence) 
 reply = input()
 blob = TextBlob(reply)
@@ -63,7 +64,7 @@ if blob.polarity > 0:
   print(sentence)
   emo.append("P")
 else:
-  sentence = random.sample(["Oh no I hope you feel better","I'm here for you","The bad stuff will eventually fade"],1)
+  sentence = random.sample(["Oh no! I hope you feel better","I'm here for you","The bad stuff will eventually fade"],1)
   print(sentence)
   emo.append("N")
 
@@ -73,7 +74,7 @@ reply = input()
 blob = TextBlob(reply)
 
 if blob.polarity > 0:
-  sentence = random.sample(["Ohh interesting","Ahh I think the same!!","Woww that's deep"],1)
+  sentence = random.sample(["Ohh! Interesting","Ahh I think the same!!","Woww that's deep"],1)
   print(sentence)
   emo.append("P")
 else:
@@ -99,7 +100,8 @@ print("How about some music to suit your mood?  Y/N")
 a = input()
 c = max(emo,key=emo.count)
 check= []
-# Recommending Songs
+
+# Recommending Songs here
 
 if a =="Y" or a=="y":
   if c == "P":
@@ -129,7 +131,7 @@ if a =="Y" or a=="y":
       check.append(j)
       print(res['tracks']['track'][j]['name'],res['tracks']['track'][j]['url'],res['tracks']['track'][j]['artist']['name'])
 
-# Recommending Movies
+# Recommending Movies here
 
 def getImage(image):
     try:
@@ -175,7 +177,7 @@ def main(emotion):
     img_url = getImage(image)
     image_url_arr.append(img_url)
 
-print("How about some movies? Y/N")
+print("How about some Movies? Y/N")
 b = input()
 check =[]
 if b =="Y" or b=="y":
@@ -193,4 +195,4 @@ if b =="Y" or b=="y":
     print(movie_title_arr[j])
     print(movie_synopsis_arr[j])
     print(image_url_arr[j],"\n")
-print("Okayy byee! Hope I helped :)")
+print("Okayy Byee! Hope I helped :)")
